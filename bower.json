@@ -1,0 +1,11 @@
+{
+  "name": "markdown-viewer",
+  "dependencies": {
+    "marked": "0.3.6"
+  },
+  "exportsOverride": {
+    "marked": {
+      "js": "marked.min.js"
+    }
+  }
+}
