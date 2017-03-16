@@ -18,7 +18,6 @@
 
     <requirements>
         <feature name="DashboardManagement"/>
-        <feature name="ComponentManagement"/>
         <feature name="StyledElements"/>
     </requirements>
 
@@ -27,7 +26,7 @@
     </preferences>
 
     <persistentvariables>
-        <variable name="initialMarkdownValue" type="text" multiuser="false"/>
+        <variable name="initialMarkdownValue" type="text"/>
     </persistentvariables>
 
     <wiring>
