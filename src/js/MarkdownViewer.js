@@ -58,7 +58,8 @@ window.MarkdownViewer = (function () {
         // Create editor button if current user is the workspace owner
         if (MashupPlatform.context.get('username') === MashupPlatform.mashup.context.get("owner")) {
             var editbtn = new StyledElements.Button({'class': 'btn-info fa fa-edit fade', 'title': 'Open editor'});
-            editbtn.addEventListener("click", this.createEditorWidget.bind(this)).insertInto(document.body);
+            editbtn.addEventListener("click", this.createEditorWidget.bind(this));
+            editbtn.insertInto(document.body);
         }
     };
 
@@ -72,7 +73,7 @@ window.MarkdownViewer = (function () {
         }
     };
 
-    MarkdownViewer.prototype.createEditorWidget = function createEditorWidget() {
+    MarkdownViewer.prototype.createEditorWidget = function createEditorWidget(event) {
         if (this.editorInput == null) {
             this.editorInput = MashupPlatform.widget.createOutputEndpoint();
         }
@@ -80,7 +81,8 @@ window.MarkdownViewer = (function () {
             var options = {
                 title: "Markdown Editor",
                 width: "750px",
-                height: "350px"
+                height: "350px",
+                refposition: event.wrapperElement.getBoundingClientRect()
             };
 
             // Create editor widget and bind its output
