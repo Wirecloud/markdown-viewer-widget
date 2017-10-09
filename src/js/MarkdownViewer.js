@@ -6,7 +6,7 @@
  * Licensed under the Apache-2.0 license.
  */
 
-/* globals marked StyledElements*/
+/* globals marked StyledElements hljs*/
 /* exported MarkdownViewer */
 
 window.MarkdownViewer = (function () {
@@ -40,7 +40,15 @@ window.MarkdownViewer = (function () {
         };
         marked.setOptions({
             xhtml: true,
-            renderer: markdown_renderer
+            renderer: markdown_renderer,
+            highlight: function (code, lang) {
+                // Avoid exception if language is wrong / being typed and do nothing
+                if (hljs.listLanguages().indexOf(lang) !== -1) {
+                    return hljs.highlight(lang.toLowerCase(), code).value;
+                } else {
+                    return code;
+                }
+            }
         });
 
         // Set the initial value
