@@ -1,11 +1,16 @@
 {
   "name": "markdown-viewer",
   "dependencies": {
-    "marked": "0.3.6"
+    "marked": "0.3.6",
+    "highlightjs": "8.4"
   },
   "exportsOverride": {
     "marked": {
       "js": "marked.min.js"
+    },
+    "highlightjs": {
+      "css": "styles/default.css",
+      "js": "highlight.pack.js"
     }
   }
 }
